@@ -5,201 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Tigre e os Guardiões da Floresta</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #FAF5EF;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #0033FF;
-            font-size: 2.6rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-rules {
-            background-color: #F29100;
-            border: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 12px 35px;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: background-color 0.2s;
-        }
-
-        .btn-rules:hover {
-            background-color: #D47F00;
-        }
-
-        .status-panel {
-            background: white;
-            border: 2px solid #B0D4FF;
-            padding: 12px 30px;
-            border-radius: 40px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-            margin: 15px 0 25px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .turn-indicator {
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .game-container {
-            position: relative;
-            background: #FFFFFF;
-            border: 4px solid #1B4985;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 15px;
-        }
-
-        canvas {
-            background-color: #F7F9FC;
-            cursor: pointer;
-            display: block;
-        }
-
-        /* MODAL DE REGRAS */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-card {
-            background: white;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 90%;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .modal-card h2 {
-            color: #0033FF;
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #B0D4FF;
-            padding-bottom: 8px;
-        }
-
-        .modal-card ul {
-            margin-left: 20px;
-            margin-bottom: 25px;
-        }
-
-        .modal-card li {
-            margin-bottom: 12px;
-            color: #4A5568;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        .btn-modal-close {
-            background-color: #0033FF;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .btn-modal-close:hover {
-            background-color: #0022CC;
-        }
-
-        /* TELA DE FIM DE JOGO */
-        .game-over-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            z-index: 10;
-            display: none;
-        }
-
-        .game-over-overlay.show {
-            display: flex;
-        }
-
-        .game-over-text {
-            font-size: 2rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 25px;
-            padding: 0 20px;
-            line-height: 1.4;
-            color: #0033FF;
-        }
-
-        .btn-restart {
-            background-color: #CCE338;
-            border: 2px solid #000;
-            color: #000;
-            font-weight: 900;
-            padding: 14px 40px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            box-shadow: 4px 4px 0px #000;
-        }
-
-        .btn-restart:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #000;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #FAF5EF; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding: 20px; }
+        header { text-align: center; margin-bottom: 20px; }
+        h1 { color: #0033FF; font-size: 2.6rem; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-rules { background-color: #F29100; border: none; color: white; font-weight: bold; font-size: 1.1rem; padding: 12px 35px; border-radius: 25px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .status-panel { background: white; border: 2px solid #B0D4FF; padding: 12px 30px; border-radius: 40px; font-size: 1.3rem; font-weight: bold; color: #333; margin: 15px 0 25px 0; }
+        .turn-indicator { text-transform: uppercase; font-weight: 900; }
+        .game-container { position: relative; background: #FFFFFF; border: 4px solid #1B4985; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 15px; }
+        canvas { background-color: #F7F9FC; cursor: pointer; display: block; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-card { background: white;margin-bottom: 15px;line-height: 1.5; border-radius: 20px; max-width: 600px; width: 90%; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .modal-card h2 { color: #0033FF; font-size: 1.8rem; font-weight: 900; margin-bottom: 15px; border-bottom: 2px solid #B0D4FF; padding-bottom: 8px; }
+        .btn-modal-close { background-color: #0033FF;margin-top: 15px; color: white; border: none; width: 100%; padding: 14px; font-size: 1.1rem; font-weight: bold; border-radius: 10px; cursor: pointer; }
+        .game-over-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px; z-index: 10; display: none; }
+        .game-over-overlay.show { display: flex; }
+        .game-over-text { font-size: 2rem; font-weight: 900; text-align: center; margin-bottom: 25px; color: #0033FF; }
+        .btn-restart { background-color: #CCE338; border: 2px solid #000; color: #000; font-weight: 900; padding: 14px 40px; border-radius: 30px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -215,7 +38,6 @@
 
     <div class="game-container">
         <canvas id="boardCanvas" width="500" height="500"></canvas>
-        
         <div class="game-over-overlay" id="game-over-screen">
             <div class="game-over-text" id="game-over-msg">FIM DE JOGO</div>
             <button class="btn-restart" onclick="resetGame()">Jogar Novamente</button>
@@ -226,10 +48,13 @@
         <div class="modal-card">
             <h2>Regras do Jogo</h2>
             <ul>
-                <li><strong>Uma jogada por vez:</strong> O jogo é alternado entre os jogadores, permitindo apenas um movimento por turno.</li>
-                <li><strong>Movimentação pelos nós:</strong> As peças só se movimentam de um vértice (nó) para outro vizinho que esteja conectado por uma linha e esteja livre.</li>
-                <li><strong>Objetivo do Tigre:</strong> Capturar os guardiões pulando por cima deles para o próximo nó vazio (igual à Dama).</li>
-                <li><strong>Objetivo dos Guardiões:</strong> Cercar o tigre através das conexões até que ele não consiga mais se movimentar para nenhum lugar.</li>
+                <li><strong>Uma jogada por vez:</strong> O jogo é alternado entre os jogadores.</li>
+            
+                <li><strong>Movimentação pelos nós:</strong> Os jogadores se movem de um nó para outro desde que exista a conexão e o nó esteja vazio.</li>
+                
+                <li><strong>Objetivo do Tigre:</strong> Capturar os guardiões pulando por cima deles.</li>
+                
+                <li><strong>Objetivo dos Guardiões:</strong> Cercar o tigre até que ele não consiga se mover.</li>
             </ul>
             <button class="btn-modal-close" onclick="toggleModal(false)">Começar o Jogo</button>
         </div>
@@ -239,62 +64,46 @@
         const canvas = document.getElementById('boardCanvas');
         const ctx = canvas.getContext('2d');
 
+        // Carregamento das imagens
+        const imgTigre = new Image();
+        imgTigre.src = 'tigre.png';
+        const imgGuardiao = new Image();
+        imgGuardiao.src = 'guardiao.png';
+
         const vertices = [
-            { id: 0,  row: 0, col: 0, x: 50,  y: 50  },
-            { id: 1,  row: 0, col: 1, x: 183, y: 50  },
-            { id: 2,  row: 0, col: 2, x: 316, y: 50  },
-            { id: 3,  row: 0, col: 3, x: 450, y: 50  },
-
-            { id: 4,  row: 1, col: 0, x: 50,  y: 183 },
-            { id: 5,  row: 1, col: 1, x: 183, y: 183 },
-            { id: 6,  row: 1, col: 2, x: 316, y: 183 },
-            { id: 7,  row: 1, col: 3, x: 450, y: 183 },
-
-            { id: 8,  row: 2, col: 0, x: 50,  y: 316 },
-            { id: 9,  row: 2, col: 1, x: 183, y: 316 },
-            { id: 10, row: 2, col: 2, x: 316, y: 316 },
-            { id: 11, row: 2, col: 3, x: 450, y: 316 },
-
-            { id: 12, row: 3, col: 0, x: 50,  y: 450 },
-            { id: 13, row: 3, col: 1, x: 183, y: 450 },
-            { id: 14, row: 3, col: 2, x: 316, y: 450 },
-            { id: 15, row: 3, col: 3, x: 450, y: 450 }
+            { id: 0, row: 0, col: 0, x: 50,  y: 50  }, { id: 1, row: 0, col: 1, x: 183, y: 50  },
+            { id: 2, row: 0, col: 2, x: 316, y: 50  }, { id: 3, row: 0, col: 3, x: 450, y: 50  },
+            { id: 4, row: 1, col: 0, x: 50,  y: 183 }, { id: 5, row: 1, col: 1, x: 183, y: 183 },
+            { id: 6, row: 1, col: 2, x: 316, y: 183 }, { id: 7, row: 1, col: 3, x: 450, y: 183 },
+            { id: 8, row: 2, col: 0, x: 50,  y: 316 }, { id: 9, row: 2, col: 1, x: 183, y: 316 },
+            { id: 10, row: 2, col: 2, x: 316, y: 316 }, { id: 11, row: 2, col: 3, x: 450, y: 316 },
+            { id: 12, row: 3, col: 0, x: 50,  y: 450 }, { id: 13, row: 3, col: 1, x: 183, y: 450 },
+            { id: 14, row: 3, col: 2, x: 316, y: 450 }, { id: 15, row: 3, col: 3, x: 450, y: 450 }
         ];
 
         const adjacencia = {
-            0: [1, 4],
-            1: [0, 2, 4, 5, 6],
-            2: [1, 3, 6],
-            3: [2, 6, 7],
-            4: [0, 1, 5, 8, 9],
-            5: [1, 4, 6, 9],
-            6: [1, 2, 3, 5, 7, 9, 10, 11],
-            7: [3, 6, 11],
-            8: [4, 9, 12],
-            9: [4, 5, 6, 8, 10, 12, 13, 14],
-            10: [6, 9, 11, 14],
-            11: [6, 7, 10, 14, 15],
-            12: [8, 9, 13],
-            13: [9, 12, 14],
-            14: [9, 10, 11, 13, 15],
-            15: [11, 14]
-        };
+    0: [1, 4],
+    1: [0, 2, 4, 5],
+    2: [1, 3, 6],
+    3: [2, 6, 7],
+    4: [0, 1, 5, 8],      // 4-5 é diagonal (coluna 1)
+    5: [1, 4, 6, 9],      // 4-5 é diagonal (coluna 1)
+    6: [2, 3, 5, 7, 10],  // 6-7 é diagonal (coluna 2 - se for esta a que deseja)
+    7: [3, 6, 11],
+    8: [4, 9, 12],
+    9: [5, 8, 10, 12, 13], // 9-10 é diagonal (coluna 2)
+    10: [6, 9, 11, 14],    // 9-10 é diagonal (coluna 2)
+    11: [7, 10, 14, 15],   // 14-15 é diagonal (coluna 3)
+    12: [8, 9, 13],
+    13: [9, 12, 14],
+    14: [10, 11, 13, 15],  // 14-15 é diagonal (coluna 3)
+    15: [11, 14]
+};
 
-        let gameState = {
-            pieces: {}, 
-            turn: 'guardiao',
-            selectedVertex: null,
-            gameOver: false
-        };
+        let gameState = { pieces: {}, turn: 'guardiao', selectedVertex: null, gameOver: false };
 
         function initPieces() {
-            gameState.pieces = {
-                0: 'guardiao', 1: 'guardiao',
-                4: 'guardiao', 5: 'guardiao',
-                8: 'guardiao', 9: 'guardiao',
-                12: 'guardiao', 13: 'guardiao',
-                6: 'tigre' 
-            };
+            gameState.pieces = { 0: 'guardiao', 1: 'guardiao', 4: 'guardiao', 5: 'guardiao', 8: 'guardiao', 9: 'guardiao', 12: 'guardiao', 13: 'guardiao', 3: 'tigre' };
         }
 
         function resetGame() {
@@ -307,215 +116,24 @@
             drawBoard();
         }
 
-        function toggleModal(show) {
-            const modal = document.getElementById('rules-modal');
-            if (show) modal.classList.add('active');
-            else modal.classList.remove('active');
-        }
+        function toggleModal(show) { document.getElementById('rules-modal').classList.toggle('active', show); }
 
         function updateStatusText() {
             const txt = document.getElementById('turn-text');
-            if (gameState.turn === 'guardiao') {
-                txt.textContent = "Guardiões";
-                txt.style.color = "#0033FF";
-            } else {
-                txt.textContent = "Tigre";
-                txt.style.color = "#D3431A";
-            }
+            txt.textContent = gameState.turn === 'guardiao' ? "Guardiões" : "Tigre";
+            txt.style.color = gameState.turn === 'guardiao' ? "#0033FF" : "#D3431A";
         }
 
         function drawCharacter(x, y, type) {
-            ctx.save();
-            
-            ctx.lineWidth = 2.5;
-            ctx.strokeStyle = '#100A05';
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-
-            if (type === 'tigre') {
-                // TIGRE REAL E IMPONENTE (Inspirado no logotipo agressivo de referência)
-                
-                // 1. Base dos Ombros Robustos
-                ctx.beginPath();
-                ctx.moveTo(x - 20, y + 24);
-                ctx.lineTo(x + 20, y + 24);
-                ctx.lineTo(x + 14, y + 12);
-                ctx.lineTo(x - 14, y + 12);
-                ctx.closePath();
-                ctx.fillStyle = '#D64500'; // Vermelho-laranja selvagem
-                ctx.fill();
-                ctx.stroke();
-
-                // 2. Orelhas Angulares com Contorno Escuro Interno
-                ctx.beginPath();
-                ctx.moveTo(x - 18, y - 4); ctx.lineTo(x - 16, y - 20); ctx.lineTo(x - 4, y - 11); ctx.closePath();
-                ctx.fillStyle = '#D64500'; ctx.fill(); ctx.stroke();
-
-                ctx.beginPath();
-                ctx.moveTo(x + 18, y - 4); ctx.lineTo(x + 16, y - 20); ctx.lineTo(x + 4, y - 11); ctx.closePath();
-                ctx.fillStyle = '#D64500'; ctx.fill(); ctx.stroke();
-
-                // Detalhe interno da orelha (Branco/Preto da ref)
-                ctx.fillStyle = '#100A05';
-                ctx.beginPath(); ctx.moveTo(x - 14, y - 6); ctx.lineTo(x - 13, y - 15); ctx.lineTo(x - 7, y - 10); ctx.closePath(); ctx.fill();
-                ctx.beginPath(); ctx.moveTo(x + 14, y - 6); ctx.lineTo(x + 13, y - 15); ctx.lineTo(x + 7, y - 10); ctx.closePath(); ctx.fill();
-
-                // 3. Estrutura da Cabeça Quadrada e Feroz
-                ctx.beginPath();
-                ctx.moveTo(x - 18, y - 6);
-                ctx.quadraticCurveTo(x - 24, y + 4, x - 15, y + 14); // Bochecha pontuda e peluda
-                ctx.lineTo(x - 8, y + 17);
-                ctx.lineTo(x + 8, y + 17); // Queixo firme
-                ctx.lineTo(x + 15, y + 14);
-                ctx.quadraticCurveTo(x + 24, y + 4, x + 18, y - 6);
-                ctx.lineTo(x + 12, y - 13);
-                ctx.lineTo(x - 12, y - 13);
-                ctx.closePath();
-                ctx.fillStyle = '#D64500';
-                ctx.fill();
-                ctx.stroke();
-
-                // 4. Detalhes de Máscara Branca ao Redor dos Olhos e Focinho (Marca registrada do tigre real)
-                ctx.fillStyle = '#FFFFFF';
-                // Sobrancelhas brancas marcantes da ref
-                ctx.beginPath();
-                ctx.moveTo(x - 14, y - 8); ctx.quadraticCurveTo(x - 8, y - 11, x - 2, y - 6); ctx.lineTo(x - 6, y - 5); ctx.closePath(); ctx.fill();
-                ctx.beginPath();
-                ctx.moveTo(x + 14, y - 8); ctx.quadraticCurveTo(x + 8, y - 11, x + 2, y - 6); ctx.lineTo(x + 6, y - 5); ctx.closePath(); ctx.fill();
-
-                // Focinho inferior branco
-                ctx.beginPath();
-                ctx.moveTo(x - 8, y + 6); ctx.lineTo(x + 8, y + 6); ctx.lineTo(x + 6, y + 16); ctx.lineTo(x - 6, y + 16); ctx.closePath();
-                ctx.fill(); ctx.stroke();
-
-                // Nariz Vermelho/Preto Largo
-                ctx.beginPath();
-                ctx.moveTo(x, y + 7); ctx.lineTo(x - 4, y + 3); ctx.lineTo(x + 4, y + 3); ctx.closePath();
-                ctx.fillStyle = '#201005'; ctx.fill();
-
-                // Boca expressiva com presas pequenas expostas
-                ctx.beginPath();
-                ctx.moveTo(x - 4, y + 12); ctx.lineTo(x - 3, y + 15); ctx.lineTo(x - 1, y + 12); // presa esquerda
-                ctx.moveTo(x + 4, y + 12); ctx.lineTo(x + 3, y + 15); ctx.lineTo(x + 1, y + 12); // presa direita
-                ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.stroke();
-
-                // 5. Olhos Vermelhos/Dourados Predatórios e Focados
-                ctx.fillStyle = '#FF2A00'; // Olhar intenso da referência brava
-                ctx.beginPath();
-                ctx.moveTo(x - 11, y - 4); ctx.quadraticCurveTo(x - 7, y - 8, x - 4, y - 3); ctx.quadraticCurveTo(x - 7, y - 1, x - 11, y - 4);
-                ctx.closePath(); ctx.fill(); ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(x + 11, y - 4); ctx.quadraticCurveTo(x + 7, y - 8, x + 4, y - 3); ctx.quadraticCurveTo(x + 7, y - 1, x + 11, y - 4);
-                ctx.closePath(); ctx.fill(); ctx.stroke();
-
-                // Pupila preta
-                ctx.fillStyle = '#000000';
-                ctx.beginPath(); ctx.arc(x - 7.5, y - 4, 1.5, 0, 2 * Math.PI); ctx.fill();
-                ctx.beginPath(); ctx.arc(x + 7.5, y - 4, 1.5, 0, 2 * Math.PI); ctx.fill();
-
-                // 6. Listras Pretas em Forma de Cunha (Agressivas)
-                ctx.fillStyle = '#100A05';
-                // Testa
-                ctx.beginPath(); ctx.moveTo(x, y - 13); ctx.lineTo(x - 2, y - 5); ctx.lineTo(x + 2, y - 5); ctx.closePath(); ctx.fill();
-                ctx.beginPath(); ctx.moveTo(x - 6, y - 12); ctx.lineTo(x - 7, y - 7); ctx.lineTo(x - 4, y - 8); ctx.closePath(); ctx.fill();
-                ctx.beginPath(); ctx.moveTo(x + 6, y - 12); ctx.lineTo(x + 7, y - 7); ctx.lineTo(x + 4, y - 8); ctx.closePath(); ctx.fill();
-                // Bochechas laterais
-                ctx.beginPath(); ctx.moveTo(x - 21, y + 2); ctx.lineTo(x - 12, y + 3); ctx.lineTo(x - 14, y); ctx.closePath(); ctx.fill();
-                ctx.beginPath(); ctx.moveTo(x - 20, y + 8); ctx.lineTo(x - 11, y + 8); ctx.lineTo(x - 13, y + 5); ctx.closePath(); ctx.fill();
-                ctx.beginPath(); ctx.moveTo(x + 21, y + 2); ctx.lineTo(x + 12, y + 3); ctx.lineTo(x + 14, y); ctx.closePath(); ctx.fill();
-                ctx.beginPath(); ctx.moveTo(x + 20, y + 8); ctx.lineTo(x + 11, y + 8); ctx.lineTo(x + 13, y + 5); ctx.closePath(); ctx.fill();
-
-            } else {
-                // GUARDIÃO DRUIDA DA FLORESTA (Inspirado no ser com chifres e roupas de folha/capa verde)
-                
-                // 1. Capa de folhas e ombros verdes marcantes
-                ctx.beginPath();
-                ctx.moveTo(x - 16, y + 22);
-                ctx.lineTo(x + 16, y + 22);
-                ctx.lineTo(x + 12, y + 6);
-                ctx.lineTo(x - 12, y + 6);
-                ctx.closePath();
-                ctx.fillStyle = '#2A5913'; // Verde capa de guardião
-                ctx.fill();
-                ctx.stroke();
-
-                // Detalhe dourado na túnica
-                ctx.beginPath();
-                ctx.arc(x, y + 14, 3, 0, 2 * Math.PI);
-                ctx.fillStyle = '#FFD700'; ctx.fill(); ctx.stroke();
-
-                // 2. Gola Peluda Cinza (Idêntica à barba/pelo da criatura mágica)
-                ctx.beginPath();
-                ctx.moveTo(x - 10, y + 6);
-                ctx.quadraticCurveTo(x, y + 12, x + 10, y + 6);
-                ctx.lineTo(x + 7, y + 2);
-                ctx.quadraticCurveTo(x, y + 6, x - 7, y + 2);
-                ctx.closePath();
-                ctx.fillStyle = '#D3D3D3'; ctx.fill(); ctx.stroke();
-
-                // 3. Cabeça e Orelhas Pontudas de Elfo/Criatura Mágica (Referência visual do elfo)
-                ctx.beginPath();
-                // Orelha esquerda pontuda para o lado
-                ctx.moveTo(x - 10, y - 2); ctx.lineTo(x - 19, y - 6); ctx.lineTo(x - 10, y - 8);
-                // Rosto
-                ctx.arc(x, y - 2, 10, Math.PI, 0, true);
-                // Orelha direita pontuda
-                ctx.lineTo(x + 10, y - 8); ctx.lineTo(x + 19, y - 6); ctx.lineTo(x + 10, y - 2);
-                ctx.closePath();
-                ctx.fillStyle = '#FFE0BD'; // Tom de pele mágico
-                ctx.fill();
-                ctx.stroke();
-
-                // 4. Cabelo Verde / Detalhe de Natureza na testa
-                ctx.fillStyle = '#556B2F';
-                ctx.beginPath();
-                ctx.arc(x, y - 5, 10, Math.PI, 2 * Math.PI);
-                ctx.fill();
-                // Franja pontuda estilizada como folhas
-                ctx.beginPath();
-                ctx.moveTo(x - 10, y - 5); ctx.lineTo(x - 5, y); ctx.lineTo(x, y - 5); ctx.lineTo(x + 5, y); ctx.lineTo(x + 10, y - 5);
-                ctx.stroke();
-
-                // Símbolo místico na testa (Círculo dourado do Druida)
-                ctx.beginPath();
-                ctx.arc(x, y - 7, 2, 0, 2 * Math.PI);
-                ctx.fillStyle = '#FFA500'; ctx.fill();
-
-                // 5. Olhos Élficos Determinados
-                ctx.fillStyle = '#000000';
-                ctx.beginPath(); ctx.arc(x - 4, y - 2, 1.8, 0, 2 * Math.PI); ctx.fill();
-                ctx.beginPath(); ctx.arc(x + 4, y - 2, 1.8, 0, 2 * Math.PI); ctx.fill();
-
-                // 6. CAJADO MÁGICO DO DRUIDA (Substituindo o antigo mini escudo)
-                ctx.beginPath();
-                ctx.moveTo(x + 12, y + 22);
-                ctx.lineTo(x + 15, y - 14); // Haste de madeira comprida
-                ctx.strokeStyle = '#6E473B';
-                ctx.lineWidth = 3;
-                ctx.stroke();
-
-                // Folhas verdes brotando do topo do cajado
-                ctx.fillStyle = '#00FF00';
-                ctx.lineWidth = 1.5;
-                ctx.strokeStyle = '#100A05';
-                
-                ctx.beginPath(); ctx.arc(x + 15, y - 14, 3, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
-                ctx.beginPath(); ctx.arc(x + 19, y - 11, 2.5, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
-                ctx.beginPath(); ctx.arc(x + 11, y - 17, 2.5, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
-            }
-
-            ctx.restore();
+            const img = (type === 'tigre') ? imgTigre : imgGuardiao;
+            const size = 80; 
+            ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
         }
 
         function drawBoard() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Desenhar as linhas e caminhos da floresta
             ctx.strokeStyle = "#40916C";
             ctx.lineWidth = 4;
-            ctx.lineCap = "round";
-            ctx.lineJoin = "round";
-            
             const drawn = new Set();
             for (let fromNode in adjacencia) {
                 let fromV = vertices[fromNode];
@@ -531,50 +149,24 @@
                     }
                 });
             }
-
-            // Vértices interativos
             vertices.forEach(v => {
                 const piece = gameState.pieces[v.id];
-                
                 ctx.beginPath();
                 ctx.arc(v.x, v.y, 13, 0, 2 * Math.PI);
-                
-                if (gameState.selectedVertex === v.id) {
-                    ctx.fillStyle = "#CCE338"; 
-                    ctx.strokeStyle = "#000000";
-                    ctx.lineWidth = 3;
-                } else {
-                    ctx.fillStyle = "#52B788"; 
-                    ctx.strokeStyle = "#1B4985";
-                    ctx.lineWidth = 2;
-                }
+                ctx.fillStyle = (gameState.selectedVertex === v.id) ? "#CCE338" : "#52B788";
                 ctx.fill();
-                ctx.stroke();
-
-                if (piece) {
-                    drawCharacter(v.x, v.y, piece);
-                }
+                if (piece) drawCharacter(v.x, v.y, piece);
             });
         }
 
-        // Cliques e movimentação de peças
         canvas.addEventListener('click', function(e) {
             if (gameState.gameOver) return;
-
             const rect = canvas.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
-
-            let clickedId = null;
-            for (let v of vertices) {
-                if (Math.hypot(v.x - mouseX, v.y - mouseY) <= 26) { 
-                    clickedId = v.id;
-                    break;
-                }
-            }
-
-            if (clickedId === null) return;
-
+            let clickedId = vertices.find(v => Math.hypot(v.x - mouseX, v.y - mouseY) <= 26)?.id;
+            
+            if (clickedId === undefined) return;
             const piece = gameState.pieces[clickedId];
 
             if (piece === gameState.turn) {
@@ -585,13 +177,10 @@
 
             if (gameState.selectedVertex !== null && !piece) {
                 let moved = false;
-
-                if (gameState.turn === 'guardiao') {
-                    if (adjacencia[gameState.selectedVertex].includes(clickedId)) {
-                        gameState.pieces[clickedId] = 'guardiao';
-                        delete gameState.pieces[gameState.selectedVertex];
-                        moved = true;
-                    }
+                if (gameState.turn === 'guardiao' && adjacencia[gameState.selectedVertex].includes(clickedId)) {
+                    gameState.pieces[clickedId] = 'guardiao';
+                    delete gameState.pieces[gameState.selectedVertex];
+                    moved = true;
                 } else if (gameState.turn === 'tigre') {
                     if (adjacencia[gameState.selectedVertex].includes(clickedId)) {
                         gameState.pieces[clickedId] = 'tigre';
@@ -607,7 +196,6 @@
                         }
                     }
                 }
-
                 if (moved) {
                     gameState.selectedVertex = null;
                     gameState.turn = (gameState.turn === 'guardiao') ? 'tigre' : 'guardiao';
@@ -619,67 +207,28 @@
         });
 
         function getMiddleNode(from, to) {
-            let vFrom = vertices[from];
-            let vTo = vertices[to];
-
-            let midRow = (vFrom.row + vTo.row) / 2;
-            let midCol = (vFrom.col + vTo.col) / 2;
-
+            let vFrom = vertices[from], vTo = vertices[to];
+            let midRow = (vFrom.row + vTo.row) / 2, midCol = (vFrom.col + vTo.col) / 2;
             if (Number.isInteger(midRow) && Number.isInteger(midCol)) {
                 let match = vertices.find(v => v.row === midRow && v.col === midCol);
-                if (match) {
-                    if (adjacencia[from].includes(match.id) && adjacencia[match.id].includes(to)) {
-                        return match.id;
-                    }
-                }
+                if (match && adjacencia[from].includes(match.id) && adjacencia[match.id].includes(to)) return match.id;
             }
             return null;
         }
 
         function checkEndConditions() {
             let guardians = Object.values(gameState.pieces).filter(p => p === 'guardiao').length;
-            
-            if (guardians <= 3) {
-                endGame(`O TIGRE GANHOU (número de guardiões insuficiente para cercar o tigre)`);
-                return;
-            }
-
-            let tigerId = parseInt(Object.keys(gameState.pieces).find(k => gameState.pieces[k] === 'tigre'));
-            let hasMoves = false;
-
-            for (let n of adjacencia[tigerId]) {
-                if (!gameState.pieces[n]) {
-                    hasMoves = true;
-                    break;
-                }
-            }
-
-            if (!hasMoves) {
-                for (let target = 0; target < vertices.length; target++) {
-                    if (!gameState.pieces[target]) {
-                        let mid = getMiddleNode(tigerId, target);
-                        if (mid !== null && gameState.pieces[mid] === 'guardiao') {
-                            hasMoves = true;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            if (!hasMoves) {
-                endGame("OS GUARDIÕES GANHARAM O JOGO");
+            if (guardians <= 3) endGame("O TIGRE GANHOU. (Não há guardiões suficientes para cercá-lo.)");
+            else {
+                let tigerId = parseInt(Object.keys(gameState.pieces).find(k => gameState.pieces[k] === 'tigre'));
+                let hasMoves = adjacencia[tigerId].some(n => !gameState.pieces[n]) || 
+                               vertices.some((_, i) => !gameState.pieces[i] && getMiddleNode(tigerId, i) !== null && gameState.pieces[getMiddleNode(tigerId, i)] === 'guardiao');
+                if (!hasMoves) endGame("OS GUARDIÕES GANHARAM O JOGO.");
             }
         }
 
-        function endGame(msg) {
-            gameState.gameOver = true;
-            document.getElementById('game-over-msg').textContent = msg;
-            document.getElementById('game-over-screen').classList.add('show');
-        }
-
-        window.onload = function() {
-            resetGame();
-        };
+        function endGame(msg) { gameState.gameOver = true; document.getElementById('game-over-msg').textContent = msg; document.getElementById('game-over-screen').classList.add('show'); }
+        window.onload = () => { imgTigre.onload = imgGuardiao.onload = drawBoard; resetGame(); };
     </script>
 </body>
 </html>
